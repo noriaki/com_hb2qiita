@@ -35,3 +35,4 @@ end
 
 gem 'omniauth'
 gem 'omniauth_qiita'
+gem 'qiita'
