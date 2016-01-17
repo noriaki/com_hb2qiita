@@ -32,3 +32,6 @@ end
 group :production do
   gem 'thin'
 end
+
+gem 'omniauth'
+gem 'omniauth_qiita'
