@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  #root 'home#index'
+  root 'home#index'
 
   get '/auth/:provider/callback' => 'sessions#create'
   get '/signin' => 'sessions#new', :as => :signin

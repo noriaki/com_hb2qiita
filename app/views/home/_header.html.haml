@@ -1,0 +1,18 @@
+%header#header.row
+  .col-xs-12.col-sm-12.col-md-12.col-lg-12.well
+    .page-header
+      %h1
+        はてブと同時にQiitaストック
+        %small= header_menu_text(action_name)
+    %p.lead.description
+      はてブにQiita投稿をブックマークすると、自動的にその投稿をQiitaでストックするツールです。
+      %br/
+      また、はてブ側で削除すると同じくQiitaで投稿ストックを自動的に解除します。
+      %br/
+      %small.text-muted
+        Qiita投稿以外のページに対するブックマークには何も行いません
+    - unless user_signed_in?
+      %p
+        %a.btn.btn-primary.btn-block{ href: signin_path }
+          Qiitaでログインして利用する
+          %span.glyphicon.glyphicon-log-in

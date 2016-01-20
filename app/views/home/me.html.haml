@@ -1,0 +1,92 @@
+= render partial: 'header', locals: { action_name: @action_name }
+#setting.row
+  .col-xs-12.col-sm-12.col-md-12.col-lg-12
+    .panel.panel-default
+      .panel-heading
+        %h2.panel-title 使い方
+      .panel-body
+        %p
+          = current_user.nickname
+          さん専用の設定情報をお伝えします。
+          下のはてブ設定をよく読んで、URL/キー/イベント通知設定を
+          %a{ href: 'http://b.hatena.ne.jp/-/my/config/developer', target: '_blank' }
+            はてなブックマークのWeb Hook設定ページ
+            %span.glyphicon.glyphicon-new-window
+          に入力するだけでOK！
+  .col-xs-12.col-sm-12.col-md-12.col-lg-12
+    .panel.panel-default
+      .panel-heading
+        %h2.panel-title はてブ設定
+      .panel-body.row
+        .col-xs-12.col-sm-12.col-md-6.col-lg-6
+          %label{ for: 'webhooks_hb_url' } はてブ設定：イベント通知を受けとるURL
+          .input-group
+            %input#webhooks_hb_url.copiable.form-control{ type: 'text', value: webhooks_hb_url, readonly: true, data: { placement: 'auto buttom' }, title: '選択部分をタップしてコピーしてください' }
+            %span.input-group-btn
+              %button.btn.btn-primary.btn-copy{ type: 'button', data: { 'clipboard-target': '#webhooks_hb_url', placement: 'bottom' }, title: 'コピーしました' } コピー
+          %p.ios-notice.text-danger
+            iOSでは、Safari以外のブラウザではうまくコピーできないことがあります。
+            その場合はこのページ
+            %code= URI(root_url).host
+            をSafariで開いてみてください。
+          %p.help-block
+            %small 上のURLをはてなブックマークのWeb Hook設定ページの下画像の部分へ入力
+            %img.img-responsive.center-block{ src: asset_path('webhook-hb-settings-url.png') }
+        .col-xs-12.col-sm-12.col-md-6.col-lg-6
+          %label{ for: 'webhooks_hb_key' } はてブ設定：キー（ユーザ毎に違います）
+          .input-group
+            %input#webhooks_hb_key.copiable.form-control{ type: 'text', value: current_user.hatebu_key, readonly: true, data: { placement: 'auto buttom' }, title: '選択部分をタップしてコピーしてください' }
+            %span.input-group-btn
+              %button.btn.btn-primary.btn-copy{ type: 'button', data: { 'clipboard-target': '#webhooks_hb_key', placement: 'bottom' }, title: 'コピーしました' } コピー
+          %p.ios-notice.text-danger
+            iOSでは、Safari以外のブラウザではうまくコピーできないことがあります。
+            その場合はこのページ
+            %code= URI(root_url).host
+            をSafariで開いてみてください。
+          %p.help-block
+            %small 上のキーをはてなブックマークのWeb Hook設定ページの下画像の部分へ入力
+            %img.img-responsive.center-block{ src: asset_path('webhook-hb-settings-key.png') }
+        .col-xs-12.col-sm-12.col-md-12.col-lg-12
+          %label はてブ設定：受け取るイベントの種類
+          %p
+            %small はてなブックマークのWeb Hook設定ページで下画像の「ブックマークの追加 / 更新 / 削除」にチェックを入れる
+            %img.img-responsive.center-block{ src: asset_path('webhook-hb-settings-event.png') }
+        .col-xs-12.col-sm-12.col-md-12.col-lg-12
+          %p
+            %small 「非公開ブックマークのイベント通知も送信する」にチェックを入れると非公開ブックマークの場合でもQiitaでストックします
+          %p 入力したら忘れずにはてなブックマークのWeb Hook設定ページ最下部の「変更を保存」をクリック
+          %a.btn.btn-primary.btn-block{ href: 'http://b.hatena.ne.jp/-/my/config/developer', target: '_blank' }
+            はてなブックマーク Web Hook設定
+            %span.glyphicon.glyphicon-new-window
+  .col-xs-12.col-sm-12.col-md-12.col-lg-12
+    .panel.panel-default
+      .panel-heading
+        %h2.panel-title 設定完了したら
+      .panel-body
+        %p
+          ためしにこのツールを紹介しているQiita記事をブックマークしてみてください
+          %a.btn.btn-info.btn-block{ href: 'http://b.hatena.ne.jp/entry/qiita.com/noriaki/items/***', target: '_blank' }
+            %span.hidden-xs
+              「はてブと同時にQiitaストック」の
+            紹介Qiita記事をブックマーク
+            %span.glyphicon.glyphicon-new-window
+#signout.row
+  .col-xs-12.col-sm-12.col-md-12.col-lg-12
+    .panel.panel-default
+      .panel-heading
+        %h2.panel-title ログアウト
+      .panel-body
+        %p.text-warning
+          %span.glyphicon.glyphicon-warning-sign
+          このツールからログアウトしても、はてブからQiitaストック連携は継続します
+        %p
+          はてブとQiitaストックの連携を停止する場合は、
+          %a{ href: 'http://b.hatena.ne.jp/-/my/config/developer', target: '_blank' }
+            はてなブックマークのWeb Hook設定
+            %span.glyphicon.glyphicon-new-window
+          を削除します。
+        %p
+          %a{ href: signout_path }
+            ログアウト
+            %span.glyphicon.glyphicon-log-out
+= render partial: 'footer', locals: { action_name: @action_name }

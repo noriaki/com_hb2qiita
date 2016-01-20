@@ -1,0 +1,52 @@
+= render partial: 'header', locals: { action_name: @action_name }
+#usage.row
+  .col-xs-12.col-sm-12.col-md-12.col-lg-12.text-center
+    %h2 利用までの手順
+    %p.small 3ステップで簡単に利用開始（無料）
+  .col-xs-12.col-sm-4.col-md-4.col-lg-4
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title
+          %span.label.label-info
+            STEP 1
+          Qiitaへログイン&連携
+      .panel-body
+        %p.lead
+          ストックするユーザでQiitaへログインして本ツールを連携します
+  .col-xs-12.col-sm-4.col-md-4.col-lg-4
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title
+          %span.label.label-info
+            STEP 2
+          はてブ用の設定をコピー
+      .panel-body
+        %p.lead
+          はてなブックマークへ設定する内容（URL, キー）が発行されるのでコピーします
+  .col-xs-12.col-sm-4.col-md-4.col-lg-4
+    .panel.panel-default
+      .panel-heading
+        %h3.panel-title
+          %span.label.label-info
+            STEP 3
+          はてブでWeb Hook設定
+      .panel-body
+        %p.lead
+          STEP 2でコピーした設定をはてなブックマークのWeb Hookへ設定します
+#signin.row
+  .col-xs-12.col-sm-12.col-md-12.col-lg-12
+    %p
+      %a.btn.btn-primary.btn-block{ href: signin_path }
+        まずはQiitaでログイン
+        %span.glyphicon.glyphicon-log-in
+  .col-xs-12.col-sm-12.col-md-12.col-lg-12.text-muted
+    %p.small
+      ログインにはQiita提供のログイン機能(OAuth)を利用しているため、
+      Qiitaのパスワードは本ツールに保存されません。
+      %br/
+      本ツールからQiita APIを利用して、投稿がストック済みか確認するための
+      %abbr{ title: 'Qiita OAuth scope: read_qiita' } データ読み出し
+      と、ストック/ストック解除のための
+      %abbr{ title: 'Qiita OAuth scope: write_qiita' } データ書き込み
+      の操作を行います。
+= render partial: 'footer', locals: { action_name: @action_name }

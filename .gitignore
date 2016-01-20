@@ -82,7 +82,3 @@ pickle-email-*.html
 
 # tilde files are usually backup files from a text editor
 *~
-
-
-/lib/tasks/unicorn.rake
-/config/unicorn.rb

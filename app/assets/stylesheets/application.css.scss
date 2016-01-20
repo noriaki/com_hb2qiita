@@ -1,0 +1,47 @@
+$icon-font-path: "bootstrap-sass-official/";
+@import "bootstrap-sass-official";
+
+@import "bootswatch-sass/flatly/_variables";
+@import "bootswatch-sass/flatly/_bootswatch";
+@import "bootswatch-sass/flatly/bootstrap";
+
+body {
+  background-image: image-url("bg.png");
+}
+
+.container {
+  max-width: 1050px;
+  min-height: 100vh;
+}
+
+@media (min-width: $screen-sm-min) {
+  .container {
+    background-color: rgba(255, 255, 255, 0.6);
+    @include box-shadow(0 1px 30px rgba(0,0,0,.45));
+  }
+}
+
+header, footer {
+  .well {
+    background-color: rgba(236, 240, 241, 0.55);
+    margin-bottom: 0;
+  }
+}
+
+.ios-notice {
+  display: none;
+  margin-top: 60px;
+}
+
+#index {
+  #usage {
+    h3 {
+      span.label {
+        margin-right: 1em;
+      }
+    }
+  }
+}
+
+#me {
+}
